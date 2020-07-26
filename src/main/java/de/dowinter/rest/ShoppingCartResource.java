@@ -1,6 +1,5 @@
 package de.dowinter.rest;
 
-import static javax.ws.rs.core.Response.Status.BAD_REQUEST;
 import static javax.ws.rs.core.Response.Status.NOT_FOUND;
 
 import de.dowinter.model.ShoppingCart;
