@@ -46,12 +46,11 @@ public class ShoppingCartService {
     @Transactional(Transactional.TxType.REQUIRED)
     public boolean reserveItem(ShoppingCart cart, long itemId, int count) {
         InventoryItem item;
-        try { // In case the Item doesnt exist, we get an WebApplicationException (Status != 2xx)
+        try { // In case the Item doesnt exist, we get a WebApplicationException (Status != 2xx)
             item = inventoryService.getSingleItem(itemId);
         } catch (WebApplicationException exception) {
             return false;
         }
-
         
         if (!inventoryService.getAvailablity(item.getId(), count).isAvailable()) {
             return false;
